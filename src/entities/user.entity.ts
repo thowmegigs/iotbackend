@@ -2,10 +2,6 @@ import { ObjectId } from "mongoose";
 import { Plan } from "./plan.entity";
 import { Role } from "./role.entity";
 
-export enum Permission {
-  CreateUser='CreateUser',
-  UpdateUser='UpdateUser',
-}
 
 export enum Status{
   Active= "active" ,
@@ -21,9 +17,9 @@ export class User {
     password:string;
     alternate_phone?: string|null;
     address?: string|null;
-    role:Role;
+    role:string;
     status?:Status;
     company_name?: string|null;
     company_address?: string|null;
-    plan?:Plan|ObjectId|null
+    plan?:Plan|null
   }

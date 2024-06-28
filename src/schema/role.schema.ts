@@ -7,8 +7,10 @@ import { UUID } from 'crypto';
   import {
     Document
   } from 'mongoose';
-import { PermissionEnum } from 'src/entities/role.entity';
 
+import type { Permission } from 'src/entities/role.entity';
+
+ 
   
   export type RoleDocument = Role & Document;
   
@@ -22,10 +24,10 @@ import { PermissionEnum } from 'src/entities/role.entity';
     name: string;
   
     @Prop({
-        required: true,
+        required: true,type:Object
         
       })
-    permissions: PermissionEnum[];
+    permissions: Permission;
   
     
   }

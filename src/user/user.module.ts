@@ -27,7 +27,7 @@ import { PlanService } from 'src/plan/plan.service';
   
   @Module({
     imports: [
-      PlanModule,
+      PlanModule,RoleModule,
      MongooseModule.forFeature([
         {
           name: User.name,

@@ -5,7 +5,8 @@ import {
   Body,
   Param,
   Delete,
-  Put
+  Put,
+  Patch
 } from '@nestjs/common';
 import {
   RoleService
@@ -28,7 +29,7 @@ export class RoleController {
 
   @Get()
   findAll() {
-      console.log('ddgdgfd')
+     
     return this.roleService.findAll();
   }
 
@@ -37,7 +38,7 @@ export class RoleController {
     return this.roleService.findOne(id);
   }
 
-  @Put(':id')
+  @Patch(':id')
   update(@Param('id') id: string, @Body() updateRoleDto: UpdateRoleDto) {
     return this.roleService.update(id, updateRoleDto);
   }

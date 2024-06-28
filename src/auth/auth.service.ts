@@ -12,6 +12,7 @@ import {
   } from '../hash.service';
 
 import { excludeKey } from 'src/helper';
+import { RoleService } from 'src/role/role.service';
   
   @Injectable()
   export class AuthService {
@@ -22,6 +23,7 @@ import { excludeKey } from 'src/helper';
   
     async validateUser(email: string, pass: string): Promise < any > {
       const user = await this.userService.getUserByEmail(email);
+      console.log('validatemein',user)
       if (user && (await this.hashService.comparePassword(pass, user.password))) {
 
         return user;

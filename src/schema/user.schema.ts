@@ -39,7 +39,7 @@ import { Plan } from './plan.schema';
     @Prop({
         required: true
       })
-    role: Role;
+    role: string;
     @Prop()
     alternate_phone?: string|null;
   

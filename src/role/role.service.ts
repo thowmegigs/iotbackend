@@ -35,13 +35,14 @@ export class RoleService {
     }
 
     async getRoleByName(name: String): Promise<RoleDocument> {
-        return this.roleModel.findOne({ name })
+     let r=await this.roleModel.findOne({ name })
             .exec();
+       return r && this.transformRole(r);
     }
-    private transformRole(role: any | null): Role {
+    private transformRole(role: any | null): RoleDocument {
         const { _id, __v, ...userDto } = role.toObject();
       let   userDto1={...userDto,id:_id}
-        return userDto1 as Role;
+        return userDto1 ;
     }
     async findAll(): Promise<Role[]> {
         let r=await this.roleModel.find()
